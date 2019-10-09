@@ -5,17 +5,17 @@ const router = express.Router();
 const hotdog = require("../models/hotdogs.js");
 
 router.get("/", function(req, res) {
-    cat.all(function(data) {
-      var hbsObject = {
-        cats: data
+    hotdog.selectAll(function(data) {
+      const hbsObject = {
+        hotdogs: data
       };
       console.log(hbsObject);
       res.render("index", hbsObject);
     });
   });
   
-  router.post("/api/cats", function(req, res) {
-    cat.create([
+  router.post("/api/hotdogs", function(req, res) {
+    hotdog.insertOne([
       "name", "sleepy"
     ], [
       req.body.name, req.body.sleepy
@@ -25,12 +25,12 @@ router.get("/", function(req, res) {
     });
   });
   
-  router.put("/api/cats/:id", function(req, res) {
+  router.put("/api/hotdogs/:id", function(req, res) {
     var condition = "id = " + req.params.id;
   
     console.log("condition", condition);
   
-    cat.update({
+    hotdog.updateOne({
       sleepy: req.body.sleepy
     }, condition, function(result) {
       if (result.changedRows == 0) {
