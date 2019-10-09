@@ -2,9 +2,9 @@ const express = require("express");
 
 const router = express.Router();
 
-const hotdog = require(__dirname + "../models/hotdogs.js");
+const hotdog = require("../models/hotdogs.js");
 
-router.get(__dirname + "/", function(req, res) {
+router.get("/", function(req, res) {
     hotdog.selectAll(function(data) {
       const hbsObject = {
         hotdogs: data
@@ -14,7 +14,7 @@ router.get(__dirname + "/", function(req, res) {
     });
   });
   
-  router.post(__dirname + "/api/hotdogs", function(req, res) {
+  router.post("/api/hotdogs", function(req, res) {
     hotdog.insertOne([
       "name", "sleepy"
     ], [
@@ -25,7 +25,7 @@ router.get(__dirname + "/", function(req, res) {
     });
   });
   
-  router.put(__dirname + "/api/hotdogs/:id", function(req, res) {
+  router.put("/api/hotdogs/:id", function(req, res) {
     var condition = "id = " + req.params.id;
   
     console.log("condition", condition);

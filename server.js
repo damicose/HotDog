@@ -19,7 +19,7 @@ app.use(express.json());
 app.engine("handlebars", exphbs({ defaultLayout: "main" }));
 app.set("view engine", "handlebars");
 
-const routes = require(__dirname + "./controllers/hotdogs_controller.js");
+const routes = require("./controllers/hotdogs_controller.js");
 
 app.use(routes);
 
