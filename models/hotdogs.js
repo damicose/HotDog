@@ -1,4 +1,4 @@
-const orm = require("../config/orm.js");
+const orm = require(__dirname + "../config/orm.js");
 
 const hotdog = {
     selectAll: function(cb) {
